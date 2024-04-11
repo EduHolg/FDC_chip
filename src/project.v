@@ -18,8 +18,8 @@ module tt_um_FDC_chip (
 
   // All output pins must be assigned. If not used, assign to 0.
     assign uio_oe = 8'b0000_0000;
-    assign uio_out = 8'b0000_0000;
-    assign uo_out[7:5] = 5'b0_0000;
+    assign uio_in = 8'b0000_0000;
+    assign uo_out[7:5] = 3'b000;
 
 chip FDC_chip(
 .reset(ui_in[3]),
