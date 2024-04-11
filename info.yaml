@@ -16,6 +16,15 @@ project:
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
     - "project.v"
+    - "chip.v"
+    - "FDC_sincronico.v"
+    - "FDC_asincrono.v"
+    - "demux.v"
+    - "ripple_counter.v"
+    - "reg_file.v"
+    - "ff_d_fdc.v"
+    - "counter.v"
+    - "register.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
