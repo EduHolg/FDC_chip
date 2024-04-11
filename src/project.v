@@ -15,7 +15,7 @@ module tt_um_FDC_chip (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-module chip (.reset(ui_in[3]),.selec(ui_in[0]),.clk_ref(ui_in[1]),.VCO(ui_in[2]),.out(ui_out[4:0]));
+module chip(.reset(ui_in[3]),.selec(ui_in[0]),.clk_ref(ui_in[1]),.VCO(ui_in[2]),.out(ui_out[4:0]));
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
