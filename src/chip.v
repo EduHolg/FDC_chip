@@ -17,12 +17,12 @@ module chip (
     .a(clk_ref), 
     .x(CLK_S), 
     .y(CLK_A));
-    FDC_sincronico sfdc(
+    fdc_sincronico sfdc(
     .VCO(VCO_S), 
     .clk(CLK_S), 
     .reset(reset),
     .D_out(S));
-    FDC_asincrono asfdc(
+    fdc_asincrono asfdc(
     .reset(reset),
     .FPTAT(VCO_A), 
     .FREF(CLK_A), 

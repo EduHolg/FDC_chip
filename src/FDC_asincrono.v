@@ -1,4 +1,4 @@
-module FDC_asincrono #(parameter ref_N = 2, ptat_N = 5)(
+module fdc_asincrono #(parameter ref_N = 2, ptat_N = 5)(
     input wire reset, FPTAT, FREF,
     output wire [ptat_N-1:0] data
     );

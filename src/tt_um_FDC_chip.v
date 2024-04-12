@@ -4,8 +4,9 @@
  */
 
 `define default_netname none
+`include "chip.v"
 
-module tt_um_FDC_chip (
+module tt_um_fdc_chip (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
@@ -17,18 +18,23 @@ module tt_um_FDC_chip (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uio_oe = 8'b0000_0000;
-  assign uio_out = 8'b0000_0000;
-  assign uo_out[7:5] = 3'b000;
+  assign uio_oe = 8'b0;
+  assign uio_out = 8'b0;
+  assign uo_out[7:5] = 3'b0;
 
+  wire reset = !rst_n; // Consistent use of reset signal
 
-chip chip(
-	.reset(ui_in[3]),
-	.selec(ui_in[0]),
-	.clk_ref(ui_in[1]),
-	.VCO(ui_in[2]),
-	.out(uo_out[4:0])
-		);
+  /* verilator lint_off UNUSEDSIGNAL */
+  wire dummy0 = ena;
+  wire dummy2 = |uio_in[7:0];
+  /* verilator lint_on UNUSEDSIGNAL */
 
-  
+  chip chip(
+    .reset(ui_in[3]),
+    .selec(ui_in[0]),
+    .clk_ref(ui_in[1]),
+    .VCO(ui_in[2]),
+    .out(uo_out[4:0])
+  );
+
 endmodule
