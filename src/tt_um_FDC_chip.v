@@ -4,7 +4,7 @@
  */
 
 `define default_netname none
-`include "chip.v"
+//`include "chip.v"
 
 module tt_um_fdc_chip (
     input  wire [7:0] ui_in,    // Dedicated inputs
