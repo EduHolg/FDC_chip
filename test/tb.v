@@ -9,7 +9,24 @@ module tb ();
   initial begin
     $dumpfile("tb.vcd");
     $dumpvars(0, tb);
-    #1;
+   
+    // Initialize inputs
+    clk = 0;
+    rst_n = 1;
+    ena = 1;
+    ui_in = 8'b0000_1001; // ui_in[3] = 0, ui_in[0] = 1
+    
+    // Generate pulse signals for ui_in[1] and ui_in[2]
+    repeat (10) begin // Simulate for 10 time units
+      #5 clk = ~clk; // Toggle clock every 5 time units
+      #1 ui_in[1] = 1; // Set ui_in[1] high for 1 time unit
+      #1 ui_in[1] = 0; // Set ui_in[1] low for 1 time unit
+      #1 ui_in[2] = ~ui_in[2]; // Toggle ui_in[2] every 1 time unit
+    end
+    
+    #10; // Wait for 10 time units
+    
+    $finish; // End simulation
   end
 
   // Wire up the inputs and outputs:
