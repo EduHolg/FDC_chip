@@ -12,7 +12,7 @@ module tb();
     clk = 0;
     rst_n = 1;
     ena = 1;
-    ui_in = 8'b0000_1001; // ui_in[3] = 0, ui_in[0] = 1
+    ui_in = 8'b0000_1000; // ui_in[3] = 0, ui_in[0] = 1
     
     // Generate pulse signals for ui_in[1] and ui_in[2]
     repeat (10) begin // Simulate for 10 time units
